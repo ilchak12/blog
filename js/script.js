@@ -9,3 +9,9 @@ mobileMenu.addEventListener("click", function() {
         mainMenu.classList.remove("active-menu");
     }
 })
+
+$(".slider").slick({
+    autoplay: true,
+    autoplaySpeed: 10000,
+    arrows: false
+});

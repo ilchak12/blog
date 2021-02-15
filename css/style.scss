@@ -35,13 +35,23 @@ img, iframe {
         background-color: $gray;
         padding: 15px 0;
         width: 300px;
+        position: fixed;
+        left: 0;
+
 
         @include mobile {
             padding: 15px 0 0;
-            width: 100vh;
+            width: 100%;
+            text-align: right;
+            @include flex-col-center;
         }
 
         li {
+            @include mobile {
+                width: 100%;
+                text-align: center;
+            }
+
             a {
                 padding: 5px 10px;
                 display: block;
@@ -52,7 +62,7 @@ img, iframe {
                 transition: all 0.3s ease-in-out;
 
                 @include mobile {
-                    font-size: 30px;
+                    font-size: 40px;
                 }
 
                 &:hover {
@@ -70,23 +80,24 @@ img, iframe {
     .navigation {
         transform: translateX(-150%);
         transition: all 0.5s ease-in-out;
-        position: absolute;
+        position: fixed;
         top: 0;
-        height: 100vh;
+        padding-top: 100px;
+        height: 100%;
 
         @include mobile {
-            top: 100%;
+            padding-top: 0;
         }
 
         &.active-menu {
             transform: translateX(0);
             opacity: 1;
             visibility: visible;
+            left: 0;
         }
     }
 
     .menu-mobile {
-        transform: translateX(30px);
         z-index: 400;
         padding: 20px;
         height: 70px;
@@ -94,27 +105,18 @@ img, iframe {
         background-color: $pink;
         @include flex-col;
         justify-content: space-between;
-        border-radius: 50%;
+        border-radius: 0 50% 50% 0;
         cursor: pointer;
         transition: all 0.5s ease-in-out;
 
         @include mobile {
-            height: 50px;
-            padding: 10px;
+            height: 60px;
+            padding: 15px;
         }
 
         &.active-menu {
             justify-content: center;
             align-items: center;
-            border-bottom-left-radius: 0;
-            border-top-left-radius: 0;
-            transform: translateX(300px);
-
-            @include mobile {
-                transform: translateX(30px);
-                border-bottom-right-radius: 0;
-                border-top-left-radius: 50%;
-            }
 
             .line:nth-child(1) {
                 transform: rotate(45deg);
